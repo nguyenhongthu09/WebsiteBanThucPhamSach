@@ -22,11 +22,8 @@ class BlogController extends Controller
     }
     public function show_blog(){
         // return view('pages.Blog.show_blog');
-        $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get();
-        $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','desc')->get();
-        $slider = Slider::orderBy('slider_id','DESC')->where('slider_status','1')->take(4)->get();
-        $all_blog = DB::table('tbl_blog')->orderby(DB::raw('RAND()'))->paginate(8);
-        return view('pages.blog.show_blog')->with('all_blog',$all_blog)->with('category',$cate_product)->with('brand',$brand_product)->with('slider',$slider);
+        $all_blog= Blog::orderBy('blog_id','DESC')->paginate(2);
+        return view('admin.blog.blog')->with(compact('all_blog'));
     }
     public function manage_blog(){
         $all_blog= Blog::orderBy('blog_id','DESC')->paginate(2);

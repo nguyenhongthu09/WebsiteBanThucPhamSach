@@ -7,7 +7,7 @@
     <div class="blog-area blog-column-2 section-space-y-axis-100">
         <div class="container">
             <div class="row">
-                @foreach($all_blog as $key => $blog)
+                @foreach($al_blog as $key => $blog)
                 <div class="col-md-6">
                     <div class="blog-item">
                         <div class="blog-img img-zoom-effect">
